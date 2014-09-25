@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;&apos; to &apos;edu.mit.blocks.workspace.BlockCanvas.serialVersionUID&apos;&#x0D;&#x0A;- Original project: &apos;openblocks-master&apos;&#x0D;&#x0A;- Destination element: &apos;edu.mit.blocks.workspace.BlockCanvas.serialVersionUID&apos;&#x0D;&#x0A;- Original element: &apos;edu.mit.blocks.workspace.BlockCanvas.serialVersionUID&apos;" description="Copy field" destination="/src\/main\/java&lt;edu.mit.blocks.workspace{BlockCanvas.java[BlockCanvas^serialVersionUID" element1="/src\/main\/java&lt;edu.mit.blocks.workspace{BlockCanvas.java[BlockCanvas^serialVersionUID" flags="589830" id="org.eclipse.jdt.ui.copy" members="1" policy="org.eclipse.jdt.ui.copyMembers" stamp="1409799194313" version="1.0"/>
+</session>
