@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="this.drawers.size() * 25" key="selection"/>
+		<item value="SCROLL" key="selection"/>
 		<list key="findhistory">
-			<item value="this.drawers.size() * 25"/>
-			<item value="height"/>
-			<item value="size"/>
-			<item value="arc"/>
-			<item value="getHeight"/>
-			<item value="setFont"/>
-			<item value="font"/>
+			<item value="scroll"/>
 			<item value="width"/>
+			<item value="2014"/>
+			<item value="20140707"/>
+			<item value="upload"/>
+			<item value="save"/>
+			<item value="height"/>
+			<item value="this.drawers.size() * 25"/>
 		</list>
 		<list key="replacehistory">
 		</list>

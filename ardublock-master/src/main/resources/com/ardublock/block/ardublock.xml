@@ -64,11 +64,11 @@
 			<BlockConnectors>
 				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.do" />
 			</BlockConnectors>
-			<Images>
+			<!-- <Images>
 				<Image>
 					<FileLocation>com/ardublock/block/arduino/loop.png</FileLocation>
 				</Image>
-			</Images>
+			</Images> -->
 		</BlockGenus>
 		<!-- legacy support -->
 		<BlockGenus name="loop1" kind="command" color="255 240 0" initlabel="bg.loop" is-starter="yes" is-terminator="yes" label-unique="no" />
@@ -6431,8 +6431,8 @@
 				<BlockGenusMember>repeat_control</BlockGenusMember>
 				<BlockGenusMember>delay</BlockGenusMember>
 				<BlockGenusMember>delay_microseconds</BlockGenusMember>
-				<BlockGenusMember>subroutine</BlockGenusMember>
-				<BlockGenusMember>subroutine-ref</BlockGenusMember>
+				<!-- <BlockGenusMember>subroutine</BlockGenusMember>
+				<BlockGenusMember>subroutine-ref</BlockGenusMember> -->
 			</BlockDrawer>
 			<BlockDrawer button-color="29 152 155" name="bd.pins" type="factory">
 				<BlockGenusMember>pin-read-digital</BlockGenusMember>
@@ -6440,9 +6440,9 @@
 				<BlockGenusMember>pin-write-digital</BlockGenusMember>
 				<BlockGenusMember>pin-write-analog</BlockGenusMember>
 				<BlockGenusMember>pin-read-digital-pullup</BlockGenusMember>
-				<BlockGenusMember>tone</BlockGenusMember>
+				<!-- <BlockGenusMember>tone</BlockGenusMember>
 				<BlockGenusMember>tone_time</BlockGenusMember>
-				<BlockGenusMember>no_tone</BlockGenusMember>
+				<BlockGenusMember>no_tone</BlockGenusMember> -->
 			</BlockDrawer>
 			<BlockDrawer button-color="255 163 82" name="bd.logic" type="factory">
 				<BlockGenusMember>greater</BlockGenusMember>
@@ -6483,25 +6483,25 @@
 				<BlockGenusMember>setter_variable_number</BlockGenusMember>
 				<BlockGenusMember>variable_number</BlockGenusMember>
 				<BlockGenusMember>number</BlockGenusMember>
-				<BlockGenusMember>setter_variable_digital</BlockGenusMember>
-				<BlockGenusMember>variable_digital</BlockGenusMember>
+				<!-- <BlockGenusMember>setter_variable_digital</BlockGenusMember>
+				<BlockGenusMember>variable_digital</BlockGenusMember> -->
 				<BlockGenusMember>digital-high</BlockGenusMember>
 				<BlockGenusMember>digital-low</BlockGenusMember>
 				<BlockGenusMember>true</BlockGenusMember>
 				<BlockGenusMember>false</BlockGenusMember>
-				<BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
+				<!-- <BlockGenusMember>setter_variable_number_unsigned_long</BlockGenusMember>
 				<BlockGenusMember>variable_number_unsigned_long</BlockGenusMember>
 				<BlockGenusMember>number_long</BlockGenusMember>
-				<BlockGenusMember>millis</BlockGenusMember>
-				<BlockGenusMember>create_variable_vector</BlockGenusMember>
+				<BlockGenusMember>millis</BlockGenusMember> -->
+				<!-- <BlockGenusMember>create_variable_vector</BlockGenusMember>
 				<BlockGenusMember>variable_vector</BlockGenusMember>
-				<BlockGenusMember>setter_variable_vector</BlockGenusMember>
+				<BlockGenusMember>setter_variable_vector</BlockGenusMember> -->
 				<BlockGenusMember>setter_variable_char</BlockGenusMember>
 				<BlockGenusMember>variable_poly</BlockGenusMember>
 				<BlockGenusMember>char</BlockGenusMember>
-				<BlockGenusMember>setter_variable_number_double</BlockGenusMember>
+				<!-- <BlockGenusMember>setter_variable_number_double</BlockGenusMember>
 				<BlockGenusMember>variable_number_double</BlockGenusMember>
-				<BlockGenusMember>number_double</BlockGenusMember>
+				<BlockGenusMember>number_double</BlockGenusMember> -->
 			</BlockDrawer>
 			<!-- <BlockDrawer button-color="205 133 63" name="bd.utilities" type="factory">
 				<BlockGenusMember>servo_default</BlockGenusMember>

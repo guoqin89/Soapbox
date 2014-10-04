@@ -38,7 +38,7 @@ import javax.swing.event.DocumentListener;
 
 public abstract class LabelWidget extends JComponent {
 
-    public static final int DROP_DOWN_MENU_WIDTH = 7;
+    public static final int DROP_DOWN_MENU_WIDTH = 20;
     private static final long serialVersionUID = 837647234895L;
     /** Border of textfield*/
     private static final Border textFieldBorder = new CompoundBorder(BorderFactory.createLoweredBevelBorder(), new EmptyBorder(1, 2, 1, 2));

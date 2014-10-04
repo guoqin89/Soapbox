@@ -50,7 +50,7 @@ public class GlassCard implements ActionListener, PropertyChangeListener {
     private CButton button;
     /** The scroll that canvas lives in */
     private CScrollPane scroll;
-    private final static int SCROLLBAR_WIDTH = 18;
+    private final static int SCROLLBAR_WIDTH = 100;
 
     /**
      * constructor

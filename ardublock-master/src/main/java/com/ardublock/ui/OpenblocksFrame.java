@@ -58,7 +58,7 @@ public class OpenblocksFrame extends JFrame
 	
 	public String makeFrameTitle()
 	{
-		String title = Context.APP_NAME + " " + context.getSaveFileName();
+		String title = Context.APP_NAME + " by Soapbox Robotics " + context.getSaveFileName();
 		if (context.isWorkspaceChanged())
 		{
 			title = title + " Soapbox Robotics";
