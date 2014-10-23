@@ -14,23 +14,39 @@ public class motor extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
-		String portNum1 = translatorBlock.toCode();
+		TranslatorBlock translatorBlock1 = this.getRequiredTranslatorBlockAtSocket(0);
+		String portNum1 = translatorBlock1.toCode();
 		
-		if (translatorBlock instanceof NumberBlock)
+		TranslatorBlock translatorBlock2 = this.getRequiredTranslatorBlockAtSocket(1);
+		String portNum2 = translatorBlock2.toCode();
+		
+		if (translatorBlock1 instanceof NumberBlock)
 		{
 			translator.addOutputPin(portNum1.trim());
+			translator.addOutputPin(portNum2.trim());
 		}
 		else
 		{
-			String setupCode = "pinMode( " + portNum1 + " , OUTPUT);\n";
+			String setupCode = "pinMode( " + portNum1 + " , OUTPUT);\npinMode( " + portNum2 + " , OUTPUT);";
 			translator.addSetupCommand(setupCode);
 		}
-		translatorBlock = this.getRequiredTranslatorBlockAtSocket(1);
-		String value = translatorBlock.toCode();
+		TranslatorBlock translatorBlock3 = this.getRequiredTranslatorBlockAtSocket(2);
+		int value2 = Integer.valueOf(translatorBlock3.toCode());
 		
-		String ret = "analogWrite(" + portNum1 + " , " + value + ");\n";
-		return ret;
+		TranslatorBlock translatorBlock4 = this.getRequiredTranslatorBlockAtSocket(3);
+		String value3 = translatorBlock4.toCode();
+		
+		if(value2==1)
+		{
+			String ret = "analogWrite(" + portNum1 + " , " + value3 + ");\nanalogWrite(" + portNum2 + " , " + 0 +");";
+			return ret;
+		}
+		else
+		{
+			String ret = "analogWrite(" + portNum1 + " , " + 0 + ");\nanalogWrite(" + portNum2 + " , " + value3 +");";
+			return ret;
+		}
+		
 	}
 
 }

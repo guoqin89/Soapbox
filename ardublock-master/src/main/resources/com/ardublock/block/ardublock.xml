@@ -6219,6 +6219,12 @@
 				<BlockConnector connector-type="number" connector-kind="socket" label="#">
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket" label="Direction 1/2">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket">
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
