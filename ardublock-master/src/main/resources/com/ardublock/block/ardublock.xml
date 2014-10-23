@@ -2734,11 +2734,11 @@
 					<DefaultArg genus-name="number" label="1" />
 				</BlockConnector>
 			</BlockConnectors>
-			<Images>
+			<!--  <Images>
 				<Image>
 					<FileLocation>com/ardublock/block/dfrobot/ser0017.jpg</FileLocation>
 				</Image>
-			</Images>
+			</Images> -->
 		</BlockGenus>
 
 		<BlockGenus name="df_360_degree_rotation_motor" kind="command" color="255 102 0" initlabel="bg.df_360_degree_rotation_motor">
@@ -2791,11 +2791,11 @@
 					<DefaultArg genus-name="number" label="255" />
 				</BlockConnector>
 			</BlockConnectors>
-			<Images>
+			<!--  <Images>
 				<Image>
 					<FileLocation>com/ardublock/block/dfrobot/dfr0021.png</FileLocation>
 				</Image>
-			</Images>
+			</Images> -->
 		</BlockGenus>
 
 		<BlockGenus name="df_piranha_led" kind="command" color="255 102 0" initlabel="bg.df_piranha_led">
@@ -6210,8 +6210,20 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
-
-
+		<!-- Soapbox Robotics -->
+		<BlockGenus name="motor" kind="command" color="77 191 169" initlabel="bg.motor">
+			<description>
+				<text>motor</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="#">
+					<DefaultArg genus-name="number" label="1" />
+				</BlockConnector>
+				<BlockConnector connector-type="number" connector-kind="socket">
+					<DefaultArg genus-name="number" label="255" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
 	</BlockGenuses>
 
 	<BlockFamilies>
@@ -6572,15 +6584,15 @@
 				<BlockGenusMember>Tinker_Mosfet</BlockGenusMember>
 				<BlockGenusMember>Tinker_Mosfet_pwm</BlockGenusMember>
 			</BlockDrawer> -->
-			<!-- <BlockDrawer button-color="255 102 0" name="bd.dfrobot" type="factory">
-			    <BlockGenusMember>df_led</BlockGenusMember>
-				<BlockGenusMember>df_led_pwm</BlockGenusMember>
-				<BlockGenusMember>df_digital_push_button</BlockGenusMember>
+			 <BlockDrawer button-color="255 102 0" name="bd.dfrobot" type="factory">
+			    <!--  <BlockGenusMember>df_led</BlockGenusMember> -->
+				<!--  <BlockGenusMember>df_led_pwm</BlockGenusMember> -->
+				<!--<BlockGenusMember>df_digital_push_button</BlockGenusMember>
 				<BlockGenusMember>df_digital_viberation_sensor</BlockGenusMember>
 				<BlockGenusMember>df_analog_rotation_sensor_v1</BlockGenusMember>
-				<BlockGenusMember>df_analog_rotation_sensor_v2</BlockGenusMember>
+				<BlockGenusMember>df_analog_rotation_sensor_v2</BlockGenusMember> -->
 				<BlockGenusMember>df_servo</BlockGenusMember>
-				<BlockGenusMember>df_360_degree_rotation_motor</BlockGenusMember>
+				<!-- <BlockGenusMember>df_360_degree_rotation_motor</BlockGenusMember>
 				<BlockGenusMember>df_analog_sound_sensor</BlockGenusMember>
 				<BlockGenusMember>df_analog_volume_sensor</BlockGenusMember>
 				<BlockGenusMember>df_relay</BlockGenusMember>
@@ -6617,10 +6629,11 @@
 				<BlockGenusMember>df_piranha_led_pwm</BlockGenusMember>
 				<BlockGenusMember>panda_i1</BlockGenusMember>
 				<BlockGenusMember>panda_o1</BlockGenusMember>
-				<BlockGenusMember>df_lcd_keypad</BlockGenusMember>
-			</BlockDrawer> -->
-			<!-- <BlockDrawer button-color="0 255 0" name="bd.seeedstudio">
-				<BlockGenusMember>seeed_o2_sensor</BlockGenusMember>
+				<BlockGenusMember>df_lcd_keypad</BlockGenusMember> -->
+			</BlockDrawer>
+		 	<BlockDrawer button-color="0 255 0" name="bg.motor">
+		 	  	<BlockGenusMember>motor</BlockGenusMember>
+			<!--<BlockGenusMember>seeed_o2_sensor</BlockGenusMember>
 				<BlockGenusMember>seeed_uv_sensor</BlockGenusMember>
 				<BlockGenusMember>seeed_single_gyro</BlockGenusMember>
 				<BlockGenusMember>seeed_mq9_sensor</BlockGenusMember>
@@ -6662,8 +6675,8 @@
 				<BlockGenusMember>seeed_vib</BlockGenusMember>
 				<BlockGenusMember>seeed_relay</BlockGenusMember>
 				<BlockGenusMember>seeed_joystick</BlockGenusMember>
-				<BlockGenusMember>seeed_joystick_button</BlockGenusMember>
-			</BlockDrawer> -->
+				<BlockGenusMember>seeed_joystick_button</BlockGenusMember> -->
+			</BlockDrawer>
 			
 			<!-- <BlockDrawer button-color="20 206 20" name="bd.DuinoEDU">
 			<BlockGenusMember>DuinoEDU_infrared</BlockGenusMember>
@@ -6690,7 +6703,7 @@
 			<BlockGenusMember>DuinoEDU_Partie_Emetteur</BlockGenusMember>
 			<BlockGenusMember>DuinoEDU_Partie_Recepteur</BlockGenusMember>
 			</BlockDrawer> -->
-			<!-- <BlockDrawer button-color="216 5 10" name="bd.adafruit" type="factory">
+			<!--  <BlockDrawer button-color="216 5 10" name="bd.adafruit" type="factory">
 				<BlockGenusMember>ada_dc_motor_fwd</BlockGenusMember>
 				<BlockGenusMember>ada_dc_motor_bwd</BlockGenusMember>
 				<BlockGenusMember>ada_dc_motor_release</BlockGenusMember>
