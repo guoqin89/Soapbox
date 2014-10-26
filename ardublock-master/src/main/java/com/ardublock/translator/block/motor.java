@@ -15,35 +15,51 @@ public class motor extends TranslatorBlock
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
 		TranslatorBlock translatorBlock1 = this.getRequiredTranslatorBlockAtSocket(0);
-		String portNum1 = translatorBlock1.toCode();
+		String motorNum = translatorBlock1.toCode();
 		
-		TranslatorBlock translatorBlock2 = this.getRequiredTranslatorBlockAtSocket(1);
-		String portNum2 = translatorBlock2.toCode();
+		String portNum1;
+		String portNum2;
+		
+		if(Integer.valueOf(motorNum)==1)
+		{
+			portNum1 = "3";
+			portNum2 = "5";
+		}
+		else if(Integer.valueOf(motorNum)==2)
+		{
+			portNum1 = "4";
+			portNum2 = "6";
+		}
+		else
+		{
+			portNum1 = "0";
+			portNum2 = "0";
+		}
 		
 		if (translatorBlock1 instanceof NumberBlock)
 		{
-			translator.addOutputPin(portNum1.trim());
-			translator.addOutputPin(portNum2.trim());
+			translator.addOutputPin(portNum1);
+			translator.addOutputPin(portNum2);
 		}
 		else
 		{
 			String setupCode = "pinMode( " + portNum1 + " , OUTPUT);\npinMode( " + portNum2 + " , OUTPUT);";
 			translator.addSetupCommand(setupCode);
 		}
+		TranslatorBlock translatorBlock2 = this.getRequiredTranslatorBlockAtSocket(1);
+		int direction = Integer.valueOf(translatorBlock2.toCode());
+		
 		TranslatorBlock translatorBlock3 = this.getRequiredTranslatorBlockAtSocket(2);
-		int value2 = Integer.valueOf(translatorBlock3.toCode());
+		String speed = translatorBlock3.toCode();
 		
-		TranslatorBlock translatorBlock4 = this.getRequiredTranslatorBlockAtSocket(3);
-		String value3 = translatorBlock4.toCode();
-		
-		if(value2==1)
+		if(direction==1)
 		{
-			String ret = "analogWrite(" + portNum1 + " , " + value3 + ");\nanalogWrite(" + portNum2 + " , " + 0 +");";
+			String ret = "analogWrite(" + portNum1 + " , " + speed + ");\nanalogWrite(" + portNum2 + " , " + 0 +");";
 			return ret;
 		}
 		else
 		{
-			String ret = "analogWrite(" + portNum1 + " , " + 0 + ");\nanalogWrite(" + portNum2 + " , " + value3 +");";
+			String ret = "analogWrite(" + portNum1 + " , " + 0 + ");\nanalogWrite(" + portNum2 + " , " + speed +");";
 			return ret;
 		}
 		
