@@ -38,10 +38,10 @@ public class CGraphiteSquareButton extends CButton {
         } else {
             if (this.focus) {
                 topColoring = this.buttonColor;
-                bottomColoring = Color.darkGray;
+                bottomColoring = this.selectedColor;
             } else {
                 topColoring = this.buttonColor;
-                bottomColoring = this.buttonColor;
+                bottomColoring = this.selectedColor;
             }
         }
         g2.setPaint(new GradientPaint(0, 0, topColoring, 0, buttonHeight, bottomColoring, false));
@@ -61,10 +61,9 @@ public class CGraphiteSquareButton extends CButton {
         } else {
             if (this.focus) {
                 topColoring = Color.white;
-                bottomColoring = Color.darkGray;
             } else {
                 topColoring = Color.gray;
-                bottomColoring = Color.darkGray;
+                bottomColoring = this.selectedColor;
             }
         }
         g2.setPaint(new GradientPaint(0, 0, topColoring, 0, buttonHeight, bottomColoring, false));

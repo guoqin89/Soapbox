@@ -170,7 +170,7 @@ public class GlassCard implements ActionListener, PropertyChangeListener {
                     gb.setStroke(new BasicStroke(1));
                 }
                 // Paint the first layer
-                gb.setColor(canvas.getColor().darker());
+                gb.setColor(canvas.getColor());
                 gb.fillRoundRect(0, 0, buttonWidth, buttonHeight, arc, arc);
                 gb.setColor(Color.darkGray);
                 gb.drawRoundRect(0, 0, buttonWidth, buttonHeight, arc, arc);
@@ -200,23 +200,23 @@ public class GlassCard implements ActionListener, PropertyChangeListener {
             if (text != null && buttonHeight > 4) {
                 //Font font = g2.getFont().deriveFont((float)(((float)this.getHeight()) * .6));
                 Font font = g2.getFont().deriveFont((float) (this.getHeight() - INSET * 2 - 2) * .7f);
-                g2.setFont(new Font("Ariel", Font.BOLD, 20));
+                g2.setFont(new Font("SANS_SERIF", Font.BOLD, 18));
                 FontMetrics metrics = g2.getFontMetrics();
                 Rectangle2D textBounds = metrics.getStringBounds(text, g2);
                 float x = (float) ((this.getWidth() / 2) - (textBounds.getWidth() / 2));
                 float y = (float) ((this.getHeight() / 2) + (textBounds.getHeight() / 2)) - metrics.getDescent();
 
-                g.setColor(Color.black);
+                g.setColor(Color.PINK);
                 for (int i = 0; i < shadowPositionArray.length; i++) {
                     int dx = shadowPositionArray[i][0];
                     int dy = shadowPositionArray[i][1];
                     g2.setColor(new Color(0.5f, 0.5f, 0.5f, shadowColorArray[i]));
-                    g2.drawString(text, x + (int) ((dx) * offsetSize), y + (int) ((dy) * offsetSize));
+                    //g2.drawString(text, x + (int) ((dx) * offsetSize), y + (int) ((dy) * offsetSize));
                 }
                 if (canvas.getHighlight() != null) {
                     g.setColor(canvas.getHighlight());
                 } else {
-                    g.setColor(Color.black);
+                    g.setColor(Color.darkGray);
                 }
                 g2.drawString(text, x, y);
             }

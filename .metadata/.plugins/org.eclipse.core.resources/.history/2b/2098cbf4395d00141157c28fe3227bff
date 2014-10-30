@@ -1,0 +1,20 @@
+package com.ardublock.translator.block;
+
+import com.ardublock.translator.Translator;
+
+public class linesensor1 extends TranslatorBlock
+{
+	public linesensor1(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	{
+		super(blockId, translator, codePrefix, codeSuffix, label);
+	}
+
+	@Override
+	public String toCode()
+	{
+		String ret = "int " + label + " = analogread(0) \n";
+		ret = ret + "if( "+ label +"> 500:" + label + "";
+	    return codePrefix + "\""+ ret + "\"" + codeSuffix;
+	}
+
+}

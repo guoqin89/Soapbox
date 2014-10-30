@@ -29,7 +29,15 @@ public class Translator
 	private Set<String> headerFileSet;
 	private Set<String> definitionSet;
 	private List<String> setupCommand;
+	private List<String> char1Command;
 	private Set<String> functionNameSet;
+	private Set<String> functionNameSetLineSensor1;
+	private Set<String> functionNameSetLineSensor2;
+	private Set<String> functionNameSetLineSensor3;
+	private Set<String> functionNameSetLineSensor4;
+	private Set<String> functionNameSetLineLeftEye;
+	private Set<String> functionNameSetLineNose;
+	private Set<String> functionNameSetLineRightEye;
 	private Set<TranslatorBlock> bodyTranslatreFinishCallbackSet;
 	private BlockAdaptor blockAdaptor;
 	
@@ -83,6 +91,69 @@ public class Translator
 			headerCommand.append("\n");
 		}
 		
+		if (!functionNameSetLineSensor1.isEmpty())
+		{
+			for (String functionName:functionNameSetLineSensor1)
+			{
+				headerCommand.append("int " + functionName + "(){if(analogRead(0)>500) return 1;\nelse return 0;\n}");
+			}
+			headerCommand.append("\n");
+		}
+		
+		if (!functionNameSetLineSensor2.isEmpty())
+		{
+			for (String functionName:functionNameSetLineSensor2)
+			{
+				headerCommand.append("int " + functionName + "(){if(analogRead(1)>500) return 1;\nelse return 0;\n}");
+			}
+			headerCommand.append("\n");
+		}
+		
+		if (!functionNameSetLineSensor3.isEmpty())
+		{
+			for (String functionName:functionNameSetLineSensor3)
+			{
+				headerCommand.append("int " + functionName + "(){if(analogRead(2)>500) return 1;\nelse return 0;\n}");
+			}
+			headerCommand.append("\n");
+		}
+		
+		if (!functionNameSetLineSensor4.isEmpty())
+		{
+			for (String functionName:functionNameSetLineSensor4)
+			{
+				headerCommand.append("int " + functionName + "(){if(analogRead(3)>500) return 1;\nelse return 0;\n}");
+			}
+			headerCommand.append("\n");
+		}
+		
+		if (!functionNameSetLineLeftEye.isEmpty())
+		{
+			for (String functionName:functionNameSetLineLeftEye)
+			{
+				headerCommand.append("int " + functionName + "(){if(analogRead(0)>500) return 1;\nelse return 0;\n}");
+			}
+			headerCommand.append("\n");
+		}
+		
+		if (!functionNameSetLineNose.isEmpty())
+		{
+			for (String functionName:functionNameSetLineNose)
+			{
+				headerCommand.append("int " + functionName + "(){if(analogRead(1)>500) return 1;\nelse return 0;\n}");
+			}
+			headerCommand.append("\n");
+		}
+		
+		if (!functionNameSetLineRightEye.isEmpty())
+		{
+			for (String functionName:functionNameSetLineRightEye)
+			{
+				headerCommand.append("int " + functionName + "(){if(analogRead(2)>500) return 1;\nelse return 0;\n}");
+			}
+			headerCommand.append("\n");
+		}
+		
 		return headerCommand.toString() + generateSetupFunction();
 	}
 	
@@ -119,6 +190,24 @@ public class Translator
 		return setupFunction.toString();
 	}
 	
+	public String generateChar1Function(String functionName)
+	{
+		StringBuilder setupFunction = new StringBuilder();
+		setupFunction.append("char" + functionName +"()\n{\n");
+		
+		if (!char1Command.isEmpty())
+		{
+			for (String command:char1Command)
+			{
+				setupFunction.append(command + "\n");
+			}
+		}
+		
+		setupFunction.append("}\n\n");
+		
+		return setupFunction.toString();
+	}
+	
 	public String translate(Long blockId) throws SocketNullException, SubroutineNotDeclaredException
 	{
 		TranslatorBlockFactory translatorBlockFactory = new TranslatorBlockFactory();
@@ -137,7 +226,15 @@ public class Translator
 		headerFileSet = new LinkedHashSet<String>();
 		definitionSet = new LinkedHashSet<String>();
 		setupCommand = new LinkedList<String>();
+		char1Command = new LinkedList<String>();
 		functionNameSet = new HashSet<String>();
+		functionNameSetLineSensor1 = new HashSet<String>();
+		functionNameSetLineSensor2 = new HashSet<String>();
+		functionNameSetLineSensor3 = new HashSet<String>();
+		functionNameSetLineSensor4 = new HashSet<String>();
+		functionNameSetLineLeftEye = new HashSet<String>();
+		functionNameSetLineNose = new HashSet<String>();
+		functionNameSetLineRightEye = new HashSet<String>();
 		inputPinSet = new HashSet<String>();
 		outputPinSet = new HashSet<String>();
 		bodyTranslatreFinishCallbackSet = new HashSet<TranslatorBlock>();
@@ -171,6 +268,14 @@ public class Translator
 		if (!setupCommand.contains(command))
 		{
 			setupCommand.add(command);
+		}
+	}
+	
+	public void addChar1Command(String command)
+	{
+		if (!char1Command.contains(command))
+		{
+			char1Command.add(command);
 		}
 	}
 	
@@ -220,8 +325,14 @@ public class Translator
 		{
 			throw new SubroutineNameDuplicatedException(blockId);
 		}
-		
-		functionNameSet.add(functionName);
+		if(functionName.equals("linesensor1")) functionNameSetLineSensor1.add(functionName);
+		else if(functionName.equals("linesensor2")) functionNameSetLineSensor2.add(functionName);
+		else if(functionName.equals("linesensor3")) functionNameSetLineSensor3.add(functionName);
+		else if(functionName.equals("linesensor4")) functionNameSetLineSensor4.add(functionName);
+		else if(functionName.equals("Right_Eye")) functionNameSetLineRightEye.add("RIGHT_EYE");
+		else if(functionName.equals("Left_Eye")) functionNameSetLineLeftEye.add("LEFT_EYE");
+		else if(functionName.equals("Nose")) functionNameSetLineNose.add("NOSE");
+		else {};
 	}
 	
 	public boolean containFunctionName(String name)

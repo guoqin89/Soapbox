@@ -30,7 +30,7 @@ public class BlockImageIcon extends JLabel {
         public static ImageLocation getImageLocation(String s) {
             for (ImageLocation loc : values()) {
                 if (loc.toString().equalsIgnoreCase(s)) {
-                    return loc;
+                    return EAST;
                 }
             }
 

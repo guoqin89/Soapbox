@@ -625,11 +625,11 @@ public abstract class LabelWidget extends JComponent {
                 int dx = shadowPositionArray[i][0];
                 int dy = shadowPositionArray[i][1];
                 g2.setColor(new Color(0.5f, 0.5f, 0.5f, shadowColorArray[i]));
-                g2.drawString(this.getText(), (int) ((4 + dx) * offsetSize), this.getHeight() + (int) ((dy - 6) * offsetSize));
+                //g2.drawString(this.getText(), (int) ((4 + dx) * offsetSize), this.getHeight() + (int) ((dy - 6) * offsetSize));
             }
 
             //draw main Text
-            g2.setColor(Color.white);
+            g2.setColor(Color.darkGray);
             g2.drawString(this.getText(), (int) ((4) * offsetSize), this.getHeight() + (int) ((-6) * offsetSize));
         }
 

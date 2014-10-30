@@ -991,7 +991,6 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.variable">
-					<DefaultArg genus-name="variable_number" label="integer variable name" />
 				</BlockConnector>
 				<BlockConnector connector-type="number" connector-kind="socket" label="bc.value">
 					<DefaultArg genus-name="number" label="0" />
@@ -6297,7 +6296,7 @@
 				<BlockConnector connector-type="number6" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
-		<BlockGenus name="lspeed" kind="data" initlabel="bg.lspeed" editable-label="yes" is-label-value="yes" color="230 110 110">
+		<BlockGenus name="lspeed" kind="data" initlabel="bg.lspeed" editable-label="no" is-label-value="yes" color="230 110 110">
 			<description>
 				<text>
 					Digital Var
@@ -6307,7 +6306,7 @@
 				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
-		<BlockGenus name="rspeed" kind="data" initlabel="bg.rspeed" editable-label="yes" is-label-value="yes" color="230 110 110">
+		<BlockGenus name="rspeed" kind="data" initlabel="bg.rspeed" editable-label="no" is-label-value="yes" color="230 110 110">
 			<description>
 				<text>
 					Digital Var
@@ -6323,11 +6322,246 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="Speed">
-					<DefaultArg genus-name="lspeed" label="speed" />
+					<DefaultArg genus-name="lspeed" label="Left_Speed" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
+		<BlockGenus name="rmotor" kind="command" color="255 204 153" initlabel="bg.rmotor">
+			<description>
+				<text>motor</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="Speed">
+					<DefaultArg genus-name="rspeed" label="Right_Speed" />
+				</BlockConnector>
+			</BlockConnectors>
+		</BlockGenus>
+		<BlockGenus name="line_sensor1" kind="data" color="102 255 51" initlabel="bg.line_sensor1">
+			<description>
+				<text>
+					Line Sensor 1
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+		<BlockGenus name="line_sensor2" kind="data" color="102 255 51" initlabel="bg.line_sensor2">
+			<description>
+				<text>
+					Line Sensor 2
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+		<BlockGenus name="line_sensor3" kind="data" color="102 255 51" initlabel="bg.line_sensor3">
+			<description>
+				<text>
+					Line Sensor 3
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+		<BlockGenus name="line_sensor4" kind="data" color="102 255 51" initlabel="bg.line_sensor4">
+			<description>
+				<text>
+					Line Sensor 4
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
+		<BlockGenus name="ifelseif" kind="command" initlabel="bg.ifelseif" color="255 221 0">
+			<description>
+				<text>
+					Does the first set of commands if the condition specified is
+					true, otherwise it will do the second set of commands.
+				</text>
+				<arg-description n="1" name="test">
+					The condition being
+					tested.
+				</arg-description>
+
+				<arg-description n="2" name="then">
+					The set of instructions
+					that is done when the condition is true.
+				</arg-description>
+
+				<arg-description n="3" name="else">
+					The set of instructions
+					that is done when the condition is false.
+				</arg-description>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.then" connector-kind="socket" connector-type="cmd" />
+				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.then" connector-kind="socket" connector-type="cmd" />
+				<BlockConnector label="bc.else" connector-kind="socket" connector-type="cmd" />
+			</BlockConnectors>
+		</BlockGenus>
 	</BlockGenuses>
+	
+	<!-- Soapbox Easy Mode -->
+	<BlockGenus name="loop_easy" kind="command" color="255 0 0" initlabel="bg.loop_easy" is-starter="yes" is-terminator="yes" label-unique="yes">
+			<description>
+				<text>this is the loop of the arduino</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="cmd" connector-kind="socket" label="bc.do" />
+			</BlockConnectors>
+			<!-- <Images>
+				<Image>
+					<FileLocation>com/ardublock/block/arduino/loop.png</FileLocation>
+				</Image>
+			</Images> -->
+	</BlockGenus>
+	<BlockGenus name="line_sensor1_easy" kind="data" color="102 255 51" initlabel="bg.line_sensor1_easy">
+			<description>
+				<text>
+					My Left Eye
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/arduino/eye.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		<BlockGenus name="line_sensor2_easy" kind="data" color="102 255 51" initlabel="bg.line_sensor2_easy">
+			<description>
+				<text>
+					Line Sensor 2
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/arduino/nose.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		<BlockGenus name="line_sensor3_easy" kind="data" color="102 255 51" initlabel="bg.line_sensor3_easy">
+			<description>
+				<text>
+					My Right Eye
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/arduino/eye.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		<BlockGenus name="lmotor_easy" kind="command" color="255 204 153" initlabel="bg.lmotor_easy">
+			<description>
+				<text>motor</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="Speed">
+					<DefaultArg genus-name="lspeed" label="Left_Speed" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/wheel.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		<BlockGenus name="rmotor_easy" kind="command" color="255 204 153" initlabel="bg.rmotor_easy">
+			<description>
+				<text>motor</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="socket" label="Speed">
+					<DefaultArg genus-name="rspeed" label="Right_Speed" />
+				</BlockConnector>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/wheel.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		<BlockGenus name="line_turnleft" kind="command" color="255 204 153" initlabel="bg.line_turnleft">
+			<description>
+				<text>Turn Left</text>
+			</description>
+			<BlockConnectors>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/arduino/left.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		<BlockGenus name="line_turnright" kind="command" color="255 204 153" initlabel="bg.line_turnright">
+			<description>
+				<text>Turn Right</text>
+			</description>
+			<BlockConnectors>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/arduino/right.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		<BlockGenus name="line_front" kind="command" color="255 204 153" initlabel="bg.line_front">
+			<description>
+				<text>Go Forward</text>
+			</description>
+			<BlockConnectors>
+			</BlockConnectors>
+			<Images>
+				<Image>
+					<FileLocation>com/ardublock/block/arduino/front.png</FileLocation>
+				</Image>
+			</Images>
+		</BlockGenus>
+		
+		<BlockGenus name="ifelseif_easy" kind="command" initlabel="bg.ifelseif_easy" color="255 221 0">
+			<description>
+				<text>
+					Does the first set of commands if the condition specified is
+					true, otherwise it will do the second set of commands.
+				</text>
+				<arg-description n="1" name="test">
+					The condition being
+					tested.
+				</arg-description>
+
+				<arg-description n="2" name="then">
+					The set of instructions
+					that is done when the condition is true.
+				</arg-description>
+
+				<arg-description n="3" name="else">
+					The set of instructions
+					that is done when the condition is false.
+				</arg-description>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="bc.line.if" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.line.left" connector-kind="socket" connector-type="cmd" />
+				<BlockConnector label="bc.line.elseif" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.line.right" connector-kind="socket" connector-type="cmd" />
+				<BlockConnector label="bc.line.else" connector-kind="socket" connector-type="cmd" />
+			</BlockConnectors>
+		</BlockGenus>
 
 	<BlockFamilies>
 		<BlockFamily>
@@ -6538,18 +6772,12 @@
 			<FamilyMember>number5</FamilyMember>
 			<FamilyMember>number6</FamilyMember>
 		</BlockFamily>
-		<BlockFamily>
-			<FamilyMember>variable_number</FamilyMember>
-			<FamilyMember>lspeed</FamilyMember>
-			<FamilyMember>rspeed</FamilyMember>
-	</BlockFamily>	
 	</BlockFamilies>
 
 	<BlockDrawerSets>
 		<BlockDrawerSet name="factory" type="stack" location="southwest" window-per-drawer="no" drawer-draggable="no">
 			<BlockDrawer name="bd.control" type="factory" is-open="yes" button-color="255 255 0">
 				<BlockGenusMember>program</BlockGenusMember>
-				<BlockGenusMember>loop</BlockGenusMember>
 				<BlockGenusMember>if</BlockGenusMember>
 				<BlockGenusMember>ifelse</BlockGenusMember>
 				<BlockGenusMember>while</BlockGenusMember>
@@ -6919,12 +7147,26 @@
 		 	  	<BlockGenusMember>serial_print_digital</BlockGenusMember>
 			</BlockDrawer>
 			<BlockDrawer button-color="147 205 221" name="bg.car">
-		 	  	<BlockGenusMember>motor</BlockGenusMember>
-		 	  	<BlockGenusMember>df_servo</BlockGenusMember>
+				<BlockGenusMember>loop</BlockGenusMember>
+				<BlockGenusMember>ifelseif</BlockGenusMember>
 		 	  	<BlockGenusMember>setter_variable_number</BlockGenusMember>
 		 	  	<BlockGenusMember>lspeed</BlockGenusMember>
 		 	  	<BlockGenusMember>rspeed</BlockGenusMember>
 		 	  	<BlockGenusMember>lmotor</BlockGenusMember>
+		 	  	<BlockGenusMember>rmotor</BlockGenusMember>
+		 	  	<BlockGenusMember>line_sensor1</BlockGenusMember>
+		 	  	<BlockGenusMember>line_sensor2</BlockGenusMember>
+		 	  	<BlockGenusMember>line_sensor3</BlockGenusMember>
+			</BlockDrawer>
+			<BlockDrawer button-color="147 205 221" name="bg.car_easy">
+				<BlockGenusMember>loop_easy</BlockGenusMember>
+				<BlockGenusMember>ifelseif_easy</BlockGenusMember>
+		 	  	<BlockGenusMember>line_sensor1_easy</BlockGenusMember>
+		 	  	<BlockGenusMember>line_sensor2_easy</BlockGenusMember>
+		 	  	<BlockGenusMember>line_sensor3_easy</BlockGenusMember>
+		 	  	<BlockGenusMember>line_turnleft</BlockGenusMember>
+		 	  	<BlockGenusMember>line_turnright</BlockGenusMember>
+		 	  	<BlockGenusMember>line_front</BlockGenusMember>
 			</BlockDrawer>
 		</BlockDrawerSet>
 	</BlockDrawerSets>

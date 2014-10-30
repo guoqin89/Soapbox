@@ -1,0 +1,35 @@
+package com.ardublock.translator.block;
+
+import com.ardublock.translator.Translator;
+import com.ardublock.translator.block.exception.SocketNullException;
+import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
+
+public class rmotor extends TranslatorBlock
+{
+	public rmotor(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	{
+		super(blockId, translator, codePrefix, codeSuffix, label);
+	}
+
+	@Override
+	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
+	{
+		TranslatorBlock translatorBlock1 = this.getRequiredTranslatorBlockAtSocket(0);
+		String speed = translatorBlock1.toCode();
+		
+		if (translatorBlock1 instanceof NumberBlock)
+		{
+			translator.addOutputPin("4");
+			translator.addOutputPin("6");
+		}
+		else
+		{
+			String setupCode = "pinMode( 4 , OUTPUT);\npinMode( 4 , OUTPUT);";
+			translator.addSetupCommand(setupCode);
+		}
+		
+		String ret = "analogWrite(4 , " + speed + ");\nanalogWrite(6 , 0);";
+		return ret;
+	}
+
+}

@@ -25,7 +25,7 @@ public class BlockLinkChecker {
 
     private static ArrayList<LinkRule> rules = new ArrayList<LinkRule>();
     // TODO get a better value
-    private static double MAX_LINK_DISTANCE = 20.0;
+    private static double MAX_LINK_DISTANCE = 100.0;
 
     /**
      * Clears all the rules within this.

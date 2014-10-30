@@ -30,6 +30,7 @@ public class GenerateCodeButtonListener implements ActionListener
 	
 	public GenerateCodeButtonListener(JFrame frame, Context context)
 	{
+		
 		this.parentFrame = frame;
 		this.context = context;
 		workspace = context.getWorkspaceController().getWorkspace();
@@ -49,8 +50,9 @@ public class GenerateCodeButtonListener implements ActionListener
 		Set<RenderableBlock> subroutineBlockSet = new HashSet<RenderableBlock>();
 		Set<RenderableBlock> scoopBlockSet = new HashSet<RenderableBlock>();
 		StringBuilder code = new StringBuilder();
-		
-		
+	
+		if((JOptionPane.showConfirmDialog(parentFrame, "Uploading to Arduino\nAre you sure?", "Soapbox Robotics", JOptionPane.OK_CANCEL_OPTION)==2))
+			return;
 		for (RenderableBlock renderableBlock:renderableBlocks)
 		{
 			Block block = renderableBlock.getBlock();
@@ -59,6 +61,10 @@ public class GenerateCodeButtonListener implements ActionListener
 			{
 				
 				if(block.getGenusName().equals("loop"))
+				{
+					loopBlockSet.add(renderableBlock);
+				}
+				if(block.getGenusName().equals("loop_easy"))
 				{
 					loopBlockSet.add(renderableBlock);
 				}

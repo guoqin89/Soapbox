@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="158" key="DIALOG_Y_ORIGIN"/>
-		<item value="46" key="DIALOG_X_ORIGIN"/>
-		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="265" key="DIALOG_WIDTH"/>
+		<item value="129" key="DIALOG_Y_ORIGIN"/>
+		<item value="1348" key="DIALOG_X_ORIGIN"/>
+		<item value="399" key="DIALOG_HEIGHT"/>
+		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
@@ -13,18 +13,19 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Soapbox" key="selection"/>
+		<item value="ifelseif" key="selection"/>
 		<list key="findhistory">
+			<item value="ifelseif"/>
+			<item value="com.ardublock.translator.block.IfelseBlock"/>
+			<item value="ifelse"/>
 			<item value="soapbox"/>
-			<item value="setter_variable_number"/>
-			<item value="&lt;BlockGenusMember&gt;lspeed&lt;/BlockGenusMember&gt;"/>
-			<item value="df_servo"/>
-			<item value="constant"/>
-			<item value="variable_number"/>
-			<item value="bg.variable_number"/>
-			<item value="df_motor"/>
+			<item value="if"/>
+			<item value="uneditable"/>
+			<item value="lmotor"/>
+			<item value="line_sensor1"/>
 		</list>
 		<list key="replacehistory">
+			<item value="functionNameSetLineSensor1"/>
 		</list>
 	</section>
 </section>
