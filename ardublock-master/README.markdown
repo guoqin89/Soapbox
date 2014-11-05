@@ -34,6 +34,7 @@ copy the target/ardublock-all.jar to Arduino\tools\ArduBlockTool\tool
 
 Authors
 ----
+* Guo Qin Low guoqin89@gmail.com
 * David Li taweili@gmail.com
 * HE Qichen heqichen@gmail.com
 
@@ -44,8 +45,6 @@ ToDo
 
 License
 ----
-
-Copyright (C) 2011 David Li and He Qichen
 
 This file is part of ArduBlock.
 
