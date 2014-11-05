@@ -38,6 +38,7 @@ public class Translator
 	private Set<String> functionNameSetLineLeftEye;
 	private Set<String> functionNameSetLineNose;
 	private Set<String> functionNameSetLineRightEye;
+	private Set<String> functionNameSetIRSensor1;
 	private Set<TranslatorBlock> bodyTranslatreFinishCallbackSet;
 	private BlockAdaptor blockAdaptor;
 	
@@ -153,6 +154,15 @@ public class Translator
 			}
 			headerCommand.append("\n");
 		}
+		if (!functionNameSetIRSensor1.isEmpty())
+		{
+			for (String functionName:functionNameSetIRSensor1)
+			{
+				headerCommand.append("int " + functionName + "(){if(analogRead(A1)<100) return 1;\nelse return 0;\n}");
+			}
+			headerCommand.append("\n");
+		}
+		
 		
 		return headerCommand.toString() + generateSetupFunction();
 	}
@@ -235,6 +245,7 @@ public class Translator
 		functionNameSetLineLeftEye = new HashSet<String>();
 		functionNameSetLineNose = new HashSet<String>();
 		functionNameSetLineRightEye = new HashSet<String>();
+		functionNameSetIRSensor1 = new HashSet<String>();
 		inputPinSet = new HashSet<String>();
 		outputPinSet = new HashSet<String>();
 		bodyTranslatreFinishCallbackSet = new HashSet<TranslatorBlock>();
@@ -329,9 +340,12 @@ public class Translator
 		else if(functionName.equals("linesensor2")) functionNameSetLineSensor2.add(functionName);
 		else if(functionName.equals("linesensor3")) functionNameSetLineSensor3.add(functionName);
 		else if(functionName.equals("linesensor4")) functionNameSetLineSensor4.add(functionName);
-		else if(functionName.equals("Right_Eye")) functionNameSetLineRightEye.add("RIGHT_EYE");
-		else if(functionName.equals("Left_Eye")) functionNameSetLineLeftEye.add("LEFT_EYE");
+		else if(functionName.equals("Right_Sensor")) functionNameSetLineRightEye.add("Right_Sensor");
+		else if(functionName.equals("Left_Sensor")) functionNameSetLineLeftEye.add("Left_Sensor");
+		else if(functionName.equals("Right_Eye")) functionNameSetLineRightEye.add("Right_Eye");
+		else if(functionName.equals("Left_Eye")) functionNameSetLineLeftEye.add("Left_Eye");
 		else if(functionName.equals("Nose")) functionNameSetLineNose.add("NOSE");
+		else if(functionName.equals("IR_Sensor")) functionNameSetLineNose.add("IR_Sensor");
 		else {};
 	}
 	

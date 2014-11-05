@@ -14,7 +14,7 @@ public class IfelseifBlock extends TranslatorBlock
 	@Override
 	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
 	{
-		String ret = "if (";
+		String ret = "if(";
 		TranslatorBlock translatorBlock = this.getRequiredTranslatorBlockAtSocket(0);
 		ret = ret + translatorBlock.toCode();
 		ret = ret + ")\n{\n";
@@ -24,7 +24,7 @@ public class IfelseifBlock extends TranslatorBlock
 			ret = ret + translatorBlock.toCode();
 			translatorBlock = translatorBlock.nextTranslatorBlock();
 		}
-		ret = ret + "}\nelseif (";
+		ret = ret + "}\nelse if(";
 		translatorBlock = this.getRequiredTranslatorBlockAtSocket(2);
 		ret = ret + translatorBlock.toCode();
 		ret = ret + ")\n{\n";

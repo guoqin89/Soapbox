@@ -1,0 +1,32 @@
+package com.ardublock.translator.block;
+
+import com.ardublock.translator.Translator;
+import com.ardublock.translator.block.exception.SocketNullException;
+import com.ardublock.translator.block.exception.SubroutineNotDeclaredException;
+
+public class LoopBlockIRStop extends TranslatorBlock
+{
+	public LoopBlockIRStop(Long blockId, Translator translator, String codePrefix, String codeSuffix, String label)
+	{
+		super(blockId, translator);
+	}
+
+	@Override
+	public String toCode() throws SocketNullException, SubroutineNotDeclaredException
+	{
+		String ret;
+		ret = "void loop()\n{  if(analogRead(A4)<100){analogWrite(3 , 0 );\nanalogWrite(5 , 0);\nanalogWrite(6 , 0 );\nanalogWrite(9 , 0);\nwhile(analogRead(A4)<100);\n }\n";
+		TranslatorBlock translatorBlock = getTranslatorBlockAtSocket(0);
+		while (translatorBlock != null)
+		{
+			ret = ret + translatorBlock.toCode();
+			translatorBlock = translatorBlock.nextTranslatorBlock();
+		}
+		if (translator.isScoopProgram())
+		{
+			ret += "yield();\n";
+		}
+		ret = ret + "}\n\n";
+		return ret;
+	}
+}

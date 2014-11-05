@@ -81,7 +81,7 @@ public class BlockCanvas implements PageChangeListener, ISupportMemento {
                 18, CGraphite.blue, null);
         scrollPane.setScrollingUnit(5);
         canvas.setLayout(null);
-        canvas.setBackground(Color.DARK_GRAY);
+        canvas.setBackground(Color.LIGHT_GRAY);
         canvas.setOpaque(true);
         PageChangeEventManager.addPageChangeListener(this);
     }

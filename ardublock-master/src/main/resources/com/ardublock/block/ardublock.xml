@@ -6226,7 +6226,7 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
-		<BlockGenus name="serial_print_analog" kind="command" color="200 12 12" initlabel="bg.serial_print_analog">
+		<BlockGenus name="serial_print_analog" kind="command" color="255 50 80" initlabel="bg.serial_print_analog">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
@@ -6236,7 +6236,7 @@
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
-		<BlockGenus name="serial_print_digital" kind="command" color="200 12 12" initlabel="bg.serial_print_digital">
+		<BlockGenus name="serial_print_digital" kind="command" color="255 50 80" initlabel="bg.serial_print_digital">
 			<description>
 				<text>send message via Serial port</text>
 			</description>
@@ -6296,6 +6296,16 @@
 				<BlockConnector connector-type="number6" connector-kind="plug" position-type="mirror" />
 			</BlockConnectors>
 		</BlockGenus>
+		<BlockGenus name="speed" kind="data" initlabel="bg.speed" editable-label="no" is-label-value="yes" color="230 110 110">
+			<description>
+				<text>
+					Speed from 0-255
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="number" connector-kind="plug" position-type="mirror" />
+			</BlockConnectors>
+		</BlockGenus>
 		<BlockGenus name="lspeed" kind="data" initlabel="bg.lspeed" editable-label="no" is-label-value="yes" color="230 110 110">
 			<description>
 				<text>
@@ -6322,7 +6332,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="Speed">
-					<DefaultArg genus-name="lspeed" label="Left_Speed" />
+					<DefaultArg genus-name="speed" label="speed" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -6332,7 +6342,7 @@
 			</description>
 			<BlockConnectors>
 				<BlockConnector connector-type="number" connector-kind="socket" label="Speed">
-					<DefaultArg genus-name="rspeed" label="Right_Speed" />
+					<DefaultArg genus-name="speed" label="speed" />
 				</BlockConnector>
 			</BlockConnectors>
 		</BlockGenus>
@@ -6343,7 +6353,7 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
 			</BlockConnectors>
 		</BlockGenus>
 		<BlockGenus name="line_sensor2" kind="data" color="102 255 51" initlabel="bg.line_sensor2">
@@ -6353,7 +6363,7 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
 			</BlockConnectors>
 		</BlockGenus>
 		<BlockGenus name="line_sensor3" kind="data" color="102 255 51" initlabel="bg.line_sensor3">
@@ -6363,7 +6373,7 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
 			</BlockConnectors>
 		</BlockGenus>
 		<BlockGenus name="line_sensor4" kind="data" color="102 255 51" initlabel="bg.line_sensor4">
@@ -6373,7 +6383,7 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
 			</BlockConnectors>
 		</BlockGenus>
 		<BlockGenus name="ifelseif" kind="command" initlabel="bg.ifelseif" color="255 221 0">
@@ -6398,17 +6408,35 @@
 				</arg-description>
 			</description>
 			<BlockConnectors>
-				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.if" connector-kind="socket" connector-type="boolean" />
 				<BlockConnector label="bc.then" connector-kind="socket" connector-type="cmd" />
-				<BlockConnector label="bc.test" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.elseif" connector-kind="socket" connector-type="boolean" />
 				<BlockConnector label="bc.then" connector-kind="socket" connector-type="cmd" />
 				<BlockConnector label="bc.else" connector-kind="socket" connector-type="cmd" />
 			</BlockConnectors>
 		</BlockGenus>
+		<BlockGenus name="bumper" kind="data" color="77 191 169" initlabel="bg.bumper">
+			<description>
+				<text>Read bumper</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
+			</BlockConnectors>
+		</BlockGenus>
 	</BlockGenuses>
+	<BlockGenus name="IR_sensor1" kind="data" color="102 255 51" initlabel="bg.IR_sensor1">
+			<description>
+				<text>
+					IR Sensor 1
+				</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
+			</BlockConnectors>
+		</BlockGenus>
 	
 	<!-- Soapbox Easy Mode -->
-	<BlockGenus name="loop_easy" kind="command" color="255 0 0" initlabel="bg.loop_easy" is-starter="yes" is-terminator="yes" label-unique="yes">
+	<BlockGenus name="loop_easy" kind="command" color="255 50 80" initlabel="bg.loop_easy" is-starter="yes" is-terminator="yes" label-unique="yes">
 			<description>
 				<text>this is the loop of the arduino</text>
 			</description>
@@ -6428,7 +6456,7 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+				<BlockConnector connector-type="boolean" connector-kind="plug"/>
 			</BlockConnectors>
 			<Images>
 				<Image>
@@ -6443,7 +6471,7 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+				<BlockConnector connector-type="boolean" connector-kind="plug"/>
 			</BlockConnectors>
 			<Images>
 				<Image>
@@ -6458,7 +6486,7 @@
 				</text>
 			</description>
 			<BlockConnectors>
-				<BlockConnector connector-type="poly" connector-kind="plug" position-type="mirror" />
+				<BlockConnector connector-type="boolean" connector-kind="plug"/>
 			</BlockConnectors>
 			<Images>
 				<Image>
@@ -6560,6 +6588,38 @@
 				<BlockConnector label="bc.line.elseif" connector-kind="socket" connector-type="boolean" />
 				<BlockConnector label="bc.line.right" connector-kind="socket" connector-type="cmd" />
 				<BlockConnector label="bc.line.else" connector-kind="socket" connector-type="cmd" />
+			</BlockConnectors>
+		</BlockGenus>
+		<BlockGenus name="bumper_easy" kind="data" color="77 191 169" initlabel="bg.bumper">
+			<description>
+				<text>Read bumper</text>
+			</description>
+			<BlockConnectors>
+				<BlockConnector connector-type="boolean" connector-kind="plug" />
+			</BlockConnectors>
+		</BlockGenus>
+		
+		<BlockGenus name="line_if" kind="command" initlabel="bg.line_if" color="255 221 0">
+			<description>
+				<text>
+					If
+					<arg n="1" />
+					is true, the agent will run the blocks attached to
+					<arg n="2" />
+				</text>
+				<arg-description n="1" name="test">
+					The condition being
+					tested.
+				</arg-description>
+
+				<arg-description n="2" name="then">
+					The set of instructions
+					that is done when the condition is true.
+				</arg-description>
+			</description>
+			<BlockConnectors>
+				<BlockConnector label="bc.lineif" connector-kind="socket" connector-type="boolean" />
+				<BlockConnector label="bc.linethen" connector-kind="socket" connector-type="cmd" />
 			</BlockConnectors>
 		</BlockGenus>
 
@@ -6764,14 +6824,6 @@
 			<FamilyMember>DuinoEDU_setSerialInfosOn</FamilyMember>
 			<FamilyMember>DuinoEDU_setSerialInfosOff</FamilyMember>
 		</BlockFamily>	
-		<BlockFamily>
-			<FamilyMember>number</FamilyMember>
-			<FamilyMember>number2</FamilyMember>
-			<FamilyMember>number3</FamilyMember>
-			<FamilyMember>number4</FamilyMember>
-			<FamilyMember>number5</FamilyMember>
-			<FamilyMember>number6</FamilyMember>
-		</BlockFamily>
 	</BlockFamilies>
 
 	<BlockDrawerSets>
@@ -7142,21 +7194,23 @@
 		    -->
 			<!-- Shapes are automatically loaded as blocks in the Shapes drawer (see slcodeblocks.ShapeBlocksGenerator for details) -->
 			<!-- Sound blocks reside in the auto-generated String drawer. (see slcodeblocks.SoundBlocksGenerator for details) -->
-			<BlockDrawer button-color="200 12 12" name="bg.serial_print">
+			<BlockDrawer button-color="255 50 80" name="bg.serial_print">
 		 	  	<BlockGenusMember>serial_print_analog</BlockGenusMember>
 		 	  	<BlockGenusMember>serial_print_digital</BlockGenusMember>
 			</BlockDrawer>
-			<BlockDrawer button-color="147 205 221" name="bg.car">
+			<BlockDrawer button-color="230 100 125" name="bg.car">
 				<BlockGenusMember>loop</BlockGenusMember>
+				<BlockGenusMember>if</BlockGenusMember>
 				<BlockGenusMember>ifelseif</BlockGenusMember>
 		 	  	<BlockGenusMember>setter_variable_number</BlockGenusMember>
-		 	  	<BlockGenusMember>lspeed</BlockGenusMember>
-		 	  	<BlockGenusMember>rspeed</BlockGenusMember>
+		 	  	<BlockGenusMember>speed</BlockGenusMember>
 		 	  	<BlockGenusMember>lmotor</BlockGenusMember>
 		 	  	<BlockGenusMember>rmotor</BlockGenusMember>
 		 	  	<BlockGenusMember>line_sensor1</BlockGenusMember>
 		 	  	<BlockGenusMember>line_sensor2</BlockGenusMember>
 		 	  	<BlockGenusMember>line_sensor3</BlockGenusMember>
+		 	  	<BlockGenusMember>bumper</BlockGenusMember>
+		 	  	<BlockGenusMember>IR_sensor1</BlockGenusMember>
 			</BlockDrawer>
 			<BlockDrawer button-color="147 205 221" name="bg.car_easy">
 				<BlockGenusMember>loop_easy</BlockGenusMember>

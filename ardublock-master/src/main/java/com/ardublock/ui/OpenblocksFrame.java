@@ -71,7 +71,7 @@ public class OpenblocksFrame extends JFrame
 	{
 		context = Context.getContext();
 		this.setTitle(makeFrameTitle());
-		this.setSize(new Dimension(1024, 760));
+		this.setSize(new Dimension(1980, 1080));
 		this.setLayout(new BorderLayout());
 		//put the frame to the center of screen
 		this.setLocationRelativeTo(null);
@@ -161,7 +161,7 @@ public class OpenblocksFrame extends JFrame
 			    URL url;
 			    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
 			        try {
-						url = new URL("http://ardublock.com");
+						url = new URL("http://soapboxrobotics.com");
 			            desktop.browse(url.toURI());
 			        } catch (Exception e1) {
 			            e1.printStackTrace();

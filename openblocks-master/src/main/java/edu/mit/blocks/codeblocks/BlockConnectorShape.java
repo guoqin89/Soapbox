@@ -49,7 +49,7 @@ public class BlockConnectorShape {
     public static final float COMMAND_INPUT_BAR_WIDTH = BlockShape.COMMAND_PORT_OFFSET + 2f;
 
     /** height of command input bar */
-    public static final float COMMAND_INPUT_BAR_HEIGHT = 5f;
+    public static final float COMMAND_INPUT_BAR_HEIGHT = 20f;
 
     /** default height of command input */
     public static final float DEFAULT_COMMAND_INPUT_HEIGHT = DATA_PLUG_HEIGHT;
@@ -191,8 +191,8 @@ public class BlockConnectorShape {
             //update starting point for _curveTo
             startPoint = blockPath.getCurrentPoint();
 
-            _curveTo(CONTROL_PLUG_WIDTH / 2, CONTROL_PLUG_HEIGHT * 4 / 3,
-                    CONTROL_PLUG_WIDTH / 2, CONTROL_PLUG_HEIGHT * 4 / 3,
+            _curveTo(CONTROL_PLUG_WIDTH / 2, CONTROL_PLUG_HEIGHT * 4 ,
+                    CONTROL_PLUG_WIDTH / 2, CONTROL_PLUG_HEIGHT * 4 ,
                     CONTROL_PLUG_WIDTH, 0);
         } else {
             // then the centerPoint is to the left of the current location on the generalPath
@@ -200,8 +200,8 @@ public class BlockConnectorShape {
             //update starting point for _curveTo
             startPoint = blockPath.getCurrentPoint();
 
-            _curveTo(-CONTROL_PLUG_WIDTH / 2, CONTROL_PLUG_HEIGHT * 4 / 3,
-                    -CONTROL_PLUG_WIDTH / 2, CONTROL_PLUG_HEIGHT * 4 / 3,
+            _curveTo(-CONTROL_PLUG_WIDTH / 2, CONTROL_PLUG_HEIGHT * 4 ,
+                    -CONTROL_PLUG_WIDTH / 2, CONTROL_PLUG_HEIGHT * 4 ,
                     -CONTROL_PLUG_WIDTH, 0);
         }
         currentConnectorPath = null;

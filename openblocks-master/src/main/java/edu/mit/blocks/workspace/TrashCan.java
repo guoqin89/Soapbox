@@ -1,6 +1,7 @@
 package edu.mit.blocks.workspace;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,6 +19,9 @@ import javax.swing.JComponent;
 import edu.mit.blocks.renderable.BlockUtilities;
 import edu.mit.blocks.renderable.RenderableBlock;
 
+import javax.imageio.ImageIO;
+import java.io.*;;
+
 public class TrashCan extends JComponent implements MouseListener, WorkspaceWidget, ComponentListener {
 
     private static final long serialVersionUID = 328149080275L;
@@ -27,11 +31,17 @@ public class TrashCan extends JComponent implements MouseListener, WorkspaceWidg
     private Color currentColor = Color.BLACK;
     private final Workspace workspace;
 
-    public TrashCan(Workspace workspace, Image trashCanImage, Image openedTrashCanImage) {
-        this.workspace = workspace;
-        this.tcImage = trashCanImage;
-        this.openedTcImage = openedTrashCanImage;
-        currentImage = tcImage;
+    public TrashCan(Workspace workspace) {
+        
+    	this.workspace = workspace;
+        try
+        {
+        	this.tcImage = ImageIO.read( new File( "com/ardublock/block/trash.png" ) );
+        	this.openedTcImage = ImageIO.read( new File( "com/ardublock/block/trash_open.png" ) );
+        }
+        catch(IOException e){
+        }
+       currentImage = tcImage;
         int width = 0, height = 0;
 
         if (tcImage.getWidth(null) > openedTcImage.getWidth(null)) {

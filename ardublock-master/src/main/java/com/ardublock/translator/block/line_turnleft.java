@@ -17,7 +17,7 @@ public class line_turnleft extends TranslatorBlock
 		String setupCode = "pinMode( 3 , OUTPUT);\npinMode( 5 , OUTPUT);\npinMode( 6 , OUTPUT);\npinMode( 9 , OUTPUT);";
 		translator.addSetupCommand(setupCode);
 		
-		String ret = "analogWrite(3 , 0 );\nanalogWrite(5 , 0);\nanalogWrite(6 , 0 );\nanalogWrite(9 , 0);";
+		String ret = "analogWrite(3 , 0 );\nanalogWrite(5 , 0);\nanalogWrite(6 , 255 );\nanalogWrite(9 , 0);";
 		return ret;
 	}
 

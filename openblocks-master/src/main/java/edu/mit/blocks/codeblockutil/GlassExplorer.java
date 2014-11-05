@@ -108,6 +108,7 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
         if (this.listeners.contains(gel)) {
             this.listeners.remove(gel);
         }
+        timer.expand();
     }
 
     private void notifyListeners(int event) {
@@ -133,6 +134,7 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
             drawers.add(card);
             buttonPane.add(card.getButton());
         }
+        this.requestFocus();
     }
 
     /**
@@ -142,6 +144,10 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
      * @param index
      */
     public void selectCanvas(int index) {
+    	if(timer.expand)
+    	{
+    		timer.shrink();
+    	}
         if ((!timer.timer.isRunning()) || (this.selectedCanvasIndex != index)) {
             if (index >= 0 && index < drawers.size()) {
                 this.selectedCanvasIndex = index;
@@ -184,10 +190,11 @@ public class GlassExplorer extends JPanel implements Explorer, FocusListener {
      * Rolls the canvasPane back underneath when focus is lost
      */
     public void focusLost(FocusEvent e) {
-        timer.shrink();
+        //timer.shrink();
     }
 
     public void focusGained(FocusEvent e) {
+    	//timer.expand();
     }
 
     /**
